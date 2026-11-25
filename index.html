@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090912">
+<title>SOCIAL LIVE TRA LA LA</title>
+<style>
+:root{--bg:#090912;--panel:#141421;--panel2:#1c1c2c;--line:#2c2c40;--text:#f5f3ff;--muted:#aaa8bd;--pink:#ff3d91;--purple:#8c5cff;--green:#4cdda0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#30204b 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#0c0b16ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px max(16px,calc((100% - 1180px)/2);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;letter-spacing:.4px;font-size:18px}.brand span{color:var(--pink)}.wrap{max-width:1180px;margin:auto;padding:22px 16px 60px}
+button,input,select{font:inherit}button{border:0;border-radius:12px;padding:10px 15px;background:linear-gradient(110deg,var(--pink),var(--purple));color:white;font-weight:750;cursor:pointer}
+button.secondary{background:var(--panel2);border:1px solid var(--line)}button:disabled{opacity:.5;cursor:not-allowed}
+.hero{padding:30px 0 22px;display:grid;grid-template-columns:1.4fr .8fr;gap:20px;align-items:center}.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:8px 0 12px}.hero p{color:var(--muted);max-width:650px}.heroBox{background:linear-gradient(145deg,#29203f,#171728);border:1px solid #45365e;border-radius:22px;padding:22px}
+.pill{display:inline-block;border:1px solid #60416b;color:#ffacd0;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:800}
+.notice{background:#251d12;border:1px solid #6a5124;color:#f6dca6;padding:12px 14px;border-radius:12px;font-size:13px;margin:16px 0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:20px 0}.toolbar input{flex:1;min-width:180px}
+input,select{background:#0f0f1a;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:11px 12px;width:100%}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}.thumb{height:150px;background:linear-gradient(135deg,#3b2455,#17172a 55%,#6a2452);display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}.live{position:absolute;top:12px;left:12px;background:#e92765;border-radius:7px;padding:3px 8px;font-size:11px;font-weight:900}.cardBody{padding:14px}.muted{color:var(--muted)}.card h3{margin:0 0 4px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin:28px 0 14px}.sectionHead h2{margin:0}.small{font-size:12px;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;margin:16px 0}.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{background:var(--panel2);border:1px solid var(--line)}.tabs button.active{background:linear-gradient(110deg,var(--pink),var(--purple));border:0}
+.hidden{display:none!important}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:var(--panel2);padding:14px;border-radius:13px}.stat b{display:block;font-size:22px}
+footer{border-top:1px solid var(--line);padding:22px 16px;color:var(--muted);text-align:center;font-size:12px}
+.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:16px;z-index:10}.modalBox{max-width:480px;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}.close{float:right;background:var(--panel2);padding:5px 10px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:540px){.grid{grid-template-columns:1fr}.formGrid,.stats{grid-template-columns:1fr}header{padding:12px 14px}.hero{padding-top:20px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">SOCIAL LIVE <span>TRA LA LA</span></div>
+ <div class="row" style="justify-content:flex-end">
+  <button class="secondary" onclick="openAuth('login')">Autentificare</button>
+  <button onclick="openAuth('register')">Creează cont</button>
+ </div>
+</header>
+<main class="wrap">
+ <section class="hero">
+  <div><span class="pill">COMUNITATE • LIVE • CONECTARE</span><h1>Intră în lumea<br><span style="color:var(--pink)">SOCIAL LIVE</span></h1>
+   <p>Platformă socială cu profiluri individuale, comunități și experiențe LIVE. Creează-ți contul și pregătește-ți profilul.</p>
+   <div class="row" style="justify-content:flex-start;flex-wrap:wrap"><button onclick="openAuth('register')">Începe acum</button><button class="secondary" onclick="document.getElementById('rooms').scrollIntoView({behavior:'smooth'})">Descoperă platforma</button></div>
+  </div>
+  <div class="heroBox"><h2 style="margin-top:0">Bine ai venit!</h2><p class="muted">Un loc pentru creatori și membri, construit cu accent pe siguranță, control și comunitate.</p><div class="stats"><div class="stat"><b>18+</b><span class="small">acces pentru adulți</span></div><div class="stat"><b>LIVE</b><span class="small">camere interactive</span></div><div class="stat"><b>24/7</b><span class="small">acces online*</span></div></div><p class="small">*Disponibilitatea reală depinde de găzduire și de integrarea serviciilor LIVE.</p></div>
+ </section>
+ <div class="notice"><b>Versiune demonstrativă:</b> această primă interfață nu transmite încă video și nu procesează plăți. Conturile și camerele afișate sunt exemple locale. Pentru lansare reală sunt necesare server, bază de date, verificarea vârstei/identității, moderare și furnizor LIVE/plăți aprobat.</div>
+ <section id="rooms">
+  <div class="sectionHead"><div><span class="pill">DESCOPERĂ</span><h2>Camere și comunități</h2></div><span class="small">Exemple de prezentare</span></div>
+  <div class="toolbar"><input id="search" placeholder="Caută o cameră sau un creator..." oninput="filterRooms()"><select id="category" onchange="filterRooms()" style="max-width:190px"><option value="all">Toate categoriile</option><option value="social">Social</option><option value="music">Muzică</option><option value="chat">Discuții</option></select></div>
+  <div class="grid" id="roomGrid">
+   <article class="card" data-name="social lounge" data-cat="social"><div class="thumb">🌙<span class="live">PREZENTARE</span></div><div class="cardBody"><div class="row"><h3>Social Lounge</h3><span class="small">Exemplu</span></div><p class="muted">Discuții și cunoaștere</p><button class="secondary" onclick="showRoom('Social Lounge')">Vezi detalii</button></div></article>
+   <article class="card" data-name="music room" data-cat="music"><div class="thumb">🎧<span class="live">PREZENTARE</span></div><div class="cardBody"><div class="row"><h3>Music Room</h3><span class="small">Exemplu</span></div><p class="muted">Muzică și conversații</p><button class="secondary" onclick="showRoom('Music Room')">Vezi detalii</button></div></article>
+   <article class="card" data-name="talk together" data-cat="chat"><div class="thumb">💬<span class="live">PREZENTARE</span></div><div class="cardBody"><div class="row"><h3>Talk Together</h3><span class="small">Exemplu</span></div><p class="muted">Cunoaște oameni noi</p><button class="secondary" onclick="showRoom('Talk Together')">Vezi detalii</button></div></article>
+  </div>
+ </section>
+ <section class="panel" id="accountPanel">
+  <div class="sectionHead" style="margin-top:0"><div><span class="pill">CONTUL TĂU</span><h2>Intră în comunitate</h2></div></div>
+  <p class="muted">Creează un cont demonstrativ pentru a vedea structura profilului. În această versiune, datele rămân doar în browserul dispozitivului.</p>
+  <button onclick="openAuth('register')">Creează cont demonstrativ</button>
+ </section>
+ <section class="panel hidden" id="profilePanel">
+  <div class="row"><div><span class="pill">PROFIL DEMO</span><h2 id="profileName">Profil</h2><p class="muted" id="profileRole"></p></div><button class="secondary" onclick="logout()">Ieșire</button></div>
+  <div class="stats"><div class="stat"><b>0</b><span class="small">urmăritori demo</span></div><div class="stat"><b>0</b><span class="small">mesaje demo</span></div><div class="stat"><b>0</b><span class="small">credite demo</span></div></div>
+  <p class="small">Acesta este un profil local de test, nu un cont conectat la un server.</p>
+ </section>
+ <section class="panel hidden" id="adminPanel"><span class="pill">ADMINISTRARE DEMO</span><h2>Panou administrator</h2><p class="muted">În versiunea reală, aici vor exista aprobarea conturilor, rapoarte, moderare, plăți și setări. Accesul administrativ va fi protejat pe server.</p></section>
+</main>
+<footer>© 2026 SOCIAL LIVE TRA LA LA • Platformă în dezvoltare • Reguli • Confidențialitate • Siguranță</footer>
+<div class="modal hidden" id="authModal"><div class="modalBox"><button class="close" onclick="closeAuth()">Închide</button><h2 id="authTitle">Creează cont</h2><form id="authForm" onsubmit="submitAuth(event)"><div class="formGrid">
+ <label class="field full">Nume afișat<input id="displayName" required maxlength="40" placeholder="Numele tău"></label>
+ <label class="field full">Adresă de e-mail<input id="email" type="email" required placeholder="nume@email.com"></label>
+ <label class="field full">Parolă<input id="password" type="password" required minlength="8" placeholder="Minimum 8 caractere"></label>
+ <label class="field full">Tip cont<select id="role"><option value="member">Membru</option><option value="creator">Creator / model (18+)</option></select></label>
+ <label class="field full" style="display:flex;grid-template-columns:auto 1fr;align-items:center"><input id="age" type="checkbox" required style="width:auto"> Confirm că am cel puțin 18 ani și accept regulile platformei.</label>
+ </div><p class="small">Nu folosi o parolă reală aici. Formularul este doar demonstrativ și nu trimite date nicăieri.</p><button type="submit" style="width:100%">Continuă</button></form></div></div>
+<script>
+let authMode='register';
+function openAuth(mode){authMode=mode;document.getElementById('authTitle').textContent=mode==='login'?'Autentificare demo':'Creează cont demo';document.getElementById('authModal').classList.remove('hidden')}
+function closeAuth(){document.getElementById('authModal').classList.add('hidden')}
+function submitAuth(e){e.preventDefault();const name=document.getElementById('displayName').value.trim();const role=document.getElementById('role').value;document.getElementById('profileName').textContent=name;document.getElementById('profileRole').textContent=role==='creator'?'Creator / model – profil demonstrativ':'Membru – profil demonstrativ';document.getElementById('profilePanel').classList.remove('hidden');document.getElementById('accountPanel').classList.add('hidden');document.getElementById('adminPanel').classList.add('hidden');closeAuth();document.getElementById('profilePanel').scrollIntoView({behavior:'smooth'})}
+function logout(){document.getElementById('profilePanel').classList.add('hidden');document.getElementById('accountPanel').classList.remove('hidden')}
+function filterRooms(){const q=document.getElementById('search').value.toLowerCase();const cat=document.getElementById('category').value;document.querySelectorAll('#roomGrid .card').forEach(c=>{c.style.display=(c.dataset.name.includes(q)&&(cat==='all'||c.dataset.cat===cat))?'':'none'})}
+function showRoom(name){alert(name+' – cameră demonstrativă. Transmisiunea LIVE va fi activată după integrarea unui furnizor video și a serverului.')}
+</script>
+</body></html>
